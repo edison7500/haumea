@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <h1>{{ store }}</h1>
+        </div>
+        <div class="row table-responsive">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'image' %}</th>
+                        <th>{% trans 'name' %}</th>
+                        <th>{% trans 'average price in 30 day' %}</th>
+                        <th>{% trans 'average sale revenue in 30 day' %}</th>
+                        <th>{% trans 'sale volume' %}</th>
+                        <th>{% trans 'sales revenue' %}</th>
+{#                        <th>{% trans 'price' %}</th>#}
+{#                        <th>{% trans 'sale-num' %}</th>#}
+                        <th>{% trans 'latest-update-date' %}</th>
+                        <th>{% trans 'opearation' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in object_list %}
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td><img class="img-responsive" width="60"  src="{{ row.image_url }}"></td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.month_average_price }}</td>
+                            <td>{{ row.month_average_sale_revenue }}</td>
+                            <td>{{ row.sales_volume_month }}</td>
+                            <td>{{ row.sales_revenue_month }}</td>
+{#                            <td>{{ row.latest_price }}</td>#}
+{#                            <td>{{ row.latest_sale_num }}</td>#}
+                            <td>{{ row.latest_update_date }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-info" target="_blank" href="{{ row.get_absolute_url }}">详情</a>
+                                    <a class="btn btn-default" target="_blank" href="{{ row.url }}">商品链接</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                {% bootstrap_pagination page_obj extra=request.GET.urlencode size="large" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

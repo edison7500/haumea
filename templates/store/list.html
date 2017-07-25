@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>{% trans 'store name' %}</th>
+                        <th>{% trans 'store type' %}</th>
+                        <th>{% trans 'monitor store goods' %}</th>
+                        <th>{% trans 'opearation' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in object_list %}
+                    <tr>
+                        <td>{{ row.pk }}</td>
+                        <td>
+                            <a target="_blank" href="{{ row.get_absolute_url }}">{{ row.name }}</a>
+                        </td>
+                        <td>{{ row.get_type_display }}</td>
+                        <td>{{ row.goods_count }}</td>
+                        <td><a href="{{ row.shop_url }}" target="_blank">去店铺</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                {% bootstrap_pagination page_obj extra=request.GET.urlencode size="large" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% load bootstrap3 %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            {% for row in object_list %}
+                <div class="col-sm-3">
+                    <a class="thumbnail" target="_blank" href="{{ row.url }}">
+                        <img src="{{ row.cover }}">
+                        <div class="caption">
+                            <h3 style="font-size: 14px;">{{ row.title }}</h3>
+                            {{ row.scrapy_mongodb.ts|date:"Y-m-d" }}
+                            <div style="padding-top: 16px;padding-bottom: 16px">
+                                <p class="pull-left">售价：{{ row.price }}</p>
+                                <p class="pull-right">销量：{{ row.sale_num }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {% bootstrap_pagination page_obj extra=request.GET.urlencode size="large" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

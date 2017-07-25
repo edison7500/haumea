@@ -1,0 +1,1 @@
+from haumea.settings import *
