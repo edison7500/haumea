@@ -134,9 +134,6 @@ class EntryStat(models.Model):
 
     class Meta:
         ordering = ['date_created']
-        # unique_together = [
-        #     ["entry", "date_created"],
-        # ]
 
     def __str__(self):
         return '{price} - {sale_num} - {date}'.format(
@@ -150,7 +147,7 @@ class EntryImage(models.Model):
     entry = models.ForeignKey(Entry,
                               related_name='images',
                               on_delete=models.CASCADE)
-    image = models.URLField(max_length=512, editable=False)
+    image = models.URLField(max_length=255, editable=False)
 
     def __str__(self):
         return self.image
