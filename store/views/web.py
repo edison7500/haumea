@@ -51,6 +51,7 @@ class EntryView(DetailView):
         df = stat.to_dataframe(index='date_created')
         context.update({
             'sale_chart': self.get_sale_chart(stat, df=df),
+            'price_chart': self.get_price_chart(stat),
         })
 
         return context
@@ -75,6 +76,20 @@ class EntryView(DetailView):
         sale_chart.add('销量', [row for row in sale_se])
         sale_chart.add('销售额', [row for row in price_se.mul(sale_se)], secondary=True)
         return sale_chart.render()
+
+    def get_price_chart(self, stat):
+        config = Config()
+        config.show_legend = False
+        config.human_readable = True
+        config.x_label_rotation = 90
+        config.pretty_print = True
+        config.min_scale = 12
+
+        price_chart = pygal.Line(config)
+        price_chart.title = '售价走势图'
+        price_chart.x_labels = map(lambda x: x.date_created.strftime("%Y-%m-%d"), stat)
+        price_chart.add('价格', [row.price for row in stat])
+        return price_chart.render()
 
 
 

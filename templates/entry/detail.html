@@ -5,22 +5,16 @@
         <div class="row">
             <h1>{{ object.name }}</h1>
         </div>
-{#        <div class="row">#}
-{#            {% for row in object.images.all %}#}
-{#                <div class="col-md-3">#}
-{#                    <img class="img-responsive" src="{{ row }}">#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 {% autoescape off %}
                     {{ sale_chart }}
                 {% endautoescape %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
 
-{#                {% autoescape off %}#}
-{#                    {{ price_chart }}#}
-{#                {% endautoescape %}#}
             </div>
         </div>
     </div>
