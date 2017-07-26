@@ -214,5 +214,7 @@ LOGGING = {
     }
 }
 
+ADMIN_SITE_HEADER = '买卖通'
+
 # django extensions
 SHELL_PLUS = "ptpython"

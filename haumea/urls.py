@@ -17,8 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.authtoken.views import obtain_auth_token
 
+
+# admin.site.index_template = 'admin/haumea_index.html'
+# admin.site.site_header = '买卖通'
+
 urlpatterns = [
-    url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
 ]
 
