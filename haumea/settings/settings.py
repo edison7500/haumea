@@ -31,7 +31,8 @@ ALLOWED_HOSTS = ['127.0.0.1', ]
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli',
+    # 'grappelli',
+    'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -160,8 +161,8 @@ HAYSTACK_CONNECTIONS = {
 }
 
 
-GRAPPELLI_ADMIN_TITLE = "博丞"
 
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 RESULTS_CACHE_SIZE = 30
 
