@@ -20,6 +20,9 @@ DATABASES = {
     }
 }
 
+STATIC_URL              = '//s.deepto.me/static/'
+STATIC_ROOT             = '/data/haumea/static/'
+
 
 HAYSTACK_CONNECTIONS = {
     'default': {
