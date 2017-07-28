@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django_pandas.managers import DataFrameManager
-
+from django_extensions.db import fields
 
 class Shop(models.Model):
     (tmall, taobao, jd) = range(3)
@@ -14,6 +14,7 @@ class Shop(models.Model):
         (jd, _('jd'))
     ]
 
+    slug = fields.RandomCharField(length=12, unique=True, include_alpha=False)
     name = models.CharField(unique=True, max_length=128, blank=True,)
     brief = models.TextField(blank=True, null=True)
     type = models.SmallIntegerField(_('type'), default=tmall, choices=SHOP_TYPE_CHOICES)

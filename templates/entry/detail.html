@@ -6,14 +6,13 @@
             <h1>{{ object.name }}</h1>
         </div>
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-6" >
                 {% autoescape off %}
                     {{ sale_chart }}
                 {% endautoescape %}
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+
+            <div class="col-sm-6">
                 {% autoescape off %}
                     {{ price_chart }}
                 {% endautoescape %}
