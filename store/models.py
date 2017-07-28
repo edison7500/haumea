@@ -14,7 +14,7 @@ class Shop(models.Model):
         (jd, _('jd'))
     ]
 
-    slug = fields.RandomCharField(length=12, unique=True, include_alpha=False)
+    slug = fields.RandomCharField(length=12, include_alpha=False, editable=False, db_index=True)
     name = models.CharField(unique=True, max_length=128, blank=True,)
     brief = models.TextField(blank=True, null=True)
     type = models.SmallIntegerField(_('type'), default=tmall, choices=SHOP_TYPE_CHOICES)
