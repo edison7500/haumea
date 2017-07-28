@@ -14,7 +14,7 @@ class Shop(models.Model):
         (jd, _('jd'))
     ]
 
-    slug = fields.RandomCharField(length=12, include_alpha=False, editable=False, db_index=True)
+    # slug = fields.RandomCharField(length=12, include_alpha=False, editable=False, db_index=True)
     name = models.CharField(unique=True, max_length=128, blank=True,)
     brief = models.TextField(blank=True, null=True)
     type = models.SmallIntegerField(_('type'), default=tmall, choices=SHOP_TYPE_CHOICES)
@@ -41,6 +41,7 @@ class Entry(models.Model):
                              related_name='entry',
                              on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
+    brief = models.TextField(default='')
     url = models.URLField(max_length=255, null=True, unique=True)
     datetime_created = models.DateTimeField(default=timezone.now, db_index=True)
 
