@@ -4,13 +4,13 @@ from fabric.contrib.project import rsync_project
 from fabric.api import run, env
 #
 # env.hosts = ['47.90.18.219',]
-env.hosts = ['203.156.198.183',]
+# env.hosts = ['203.156.198.183', '67.207.85.65',]
+env.hosts = ['67.207.85.65',]
 env.user = "jiaxin"
 
 
 def test_store():
     local("./manage.py test store")
-
 
 def test():
     test_store()
