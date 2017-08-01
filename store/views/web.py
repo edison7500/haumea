@@ -1,7 +1,7 @@
 import pygal
+from pygal import Config
 from django.views.generic import ListView, DetailView
 from django.utils.log import getLogger
-from pygal import Config
 
 from store.models import Shop, Entry
 from datetime import datetime, timedelta

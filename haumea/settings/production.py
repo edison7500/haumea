@@ -2,7 +2,7 @@ from .settings import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['1ww.me', 'www.1ww.me', ]
+ALLOWED_HOSTS = ['1ww.me', 'www.1ww.me', 'api.1ww.me', ]
 
 
 DATABASES = {
