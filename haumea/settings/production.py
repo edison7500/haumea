@@ -1,9 +1,9 @@
 from .settings import *
 
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ['1ww.me', 'www.1ww.me', 'api.1ww.me', ]
-ALLOWED_HOSTS = ['*', ]
+ALLOWED_HOSTS = ['1ww.me', 'www.1ww.me', 'api.1ww.me', ]
+# ALLOWED_HOSTS = ['*', ]
 
 
 DATABASES = {
@@ -12,8 +12,8 @@ DATABASES = {
         'NAME': 'haumea',
         'USER': 'haumea',
         'PASSWORD': 'haumea123',
-        'HOST': '/tmp/mysql.sock',
-        # 'HOST': '10.136.62.181',
+        # 'HOST': '/tmp/mysql.sock',
+        'HOST': '10.136.62.181',
         'PORT': 3306,
         'OPTIONS': {
             'charset': 'utf8',
@@ -22,8 +22,8 @@ DATABASES = {
     }
 }
 
-# STATIC_URL              = '//static.1ww.me/static/'
-STATIC_URL              = '//s.deepto.me/static/'
+STATIC_URL              = '//static.1ww.me/static/'
+# STATIC_URL              = '//s.deepto.me/static/'
 STATIC_ROOT             = '/data/haumea/static/'
 
 
