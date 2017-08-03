@@ -24,7 +24,7 @@ DATABASES = {
 
 STATIC_URL              = '//static.1ww.me/static/'
 # STATIC_URL              = '//s.deepto.me/static/'
-STATIC_ROOT             = '/data/haumea/static/'
+STATIC_ROOT             = '/data/static/haumea/'
 
 
 HAYSTACK_CONNECTIONS = {
