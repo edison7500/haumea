@@ -11,7 +11,7 @@
             <table class="table table-condensed table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+{#                        <th>#</th>#}
                         <th>{% trans 'image' %}</th>
                         <th>{% trans 'name' %}</th>
                         <th>{% trans 'average price in 30 day' %}</th>
@@ -27,7 +27,7 @@
                 <tbody>
                     {% for row in object_list %}
                         <tr>
-                            <td>{{ row.id }}</td>
+{#                            <td>{{ row.id }}</td>#}
                             <td><img class="img-responsive" width="60"  src="{{ row.image_url }}"></td>
                             <td>{{ row.name }}</td>
                             <td>{{ row.month_average_price }}</td>

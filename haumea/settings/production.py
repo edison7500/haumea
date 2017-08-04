@@ -1,6 +1,6 @@
 from .settings import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['1ww.me', 'www.1ww.me', 'api.1ww.me', ]
 # ALLOWED_HOSTS = ['*', ]
@@ -23,7 +23,6 @@ DATABASES = {
 }
 
 STATIC_URL              = '//static.1ww.me/static/'
-# STATIC_URL              = '//s.deepto.me/static/'
 STATIC_ROOT             = '/data/static/haumea/'
 
 

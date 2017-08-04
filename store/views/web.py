@@ -64,18 +64,20 @@ class EntryView(DetailView):
         config.x_label_rotation = 90
         config.pretty_print = True
         config.min_scale = 12
+        config.height = 480
         # config.print_values = True
         # config.print_values_position = 'top'
         # config.value_font_size=30
 
         sale_chart = pygal.Line(config)
-        sale_chart.title = '总销量走势图'
+        sale_chart.title = '销量与销售额'
         sale_chart.x_labels =  map(lambda x: x.date_created.strftime("%Y-%m-%d"), stat)
         price_se = df.price.convert_objects(convert_numeric=True)
         sale_se = df.sale_num.diff().fillna(0)
         sale_chart.add('销量', [row for row in sale_se])
         sale_chart.add('销售额', [row for row in price_se.mul(sale_se)], secondary=True)
-        return sale_chart.render()
+        # return sale_chart.render()
+        return sale_chart.render_data_uri()
 
     def get_price_chart(self, stat):
         config = Config()
@@ -84,12 +86,13 @@ class EntryView(DetailView):
         config.x_label_rotation = 90
         config.pretty_print = True
         config.min_scale = 12
+        config.height = 480
 
         price_chart = pygal.Line(config)
         price_chart.title = '售价走势图'
         price_chart.x_labels = map(lambda x: x.date_created.strftime("%Y-%m-%d"), stat)
         price_chart.add('价格', [row.price for row in stat])
-        return price_chart.render()
+        return price_chart.render_data_uri()
 
 
 

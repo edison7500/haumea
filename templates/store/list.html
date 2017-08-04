@@ -10,7 +10,7 @@
             <table class="table table-condensed table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+{#                        <th>#</th>#}
                         <th>{% trans 'store name' %}</th>
                         <th>{% trans 'store type' %}</th>
                         <th>{% trans 'monitor store goods' %}</th>
@@ -20,7 +20,7 @@
                 <tbody>
                     {% for row in object_list %}
                     <tr>
-                        <td>{{ row.pk }}</td>
+{#                        <td>{{ row.pk }}</td>#}
                         <td>
                             <a target="_blank" href="{{ row.get_absolute_url }}">{{ row.name }}</a>
                         </td>
