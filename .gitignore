@@ -107,4 +107,4 @@ ENV/
 
 # Rope project settings
 .ropeproject
-
+.idea
