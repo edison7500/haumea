@@ -19,6 +19,7 @@ class Shop(models.Model):
     brief = models.TextField(blank=True, null=True)
     type = models.SmallIntegerField(_('type'), default=tmall, choices=SHOP_TYPE_CHOICES)
     shop_url = models.CharField(unique=True, max_length=255, blank=True)
+    status = models.BooleanField(default=True)
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True)
 
     class Meta:
